@@ -32,6 +32,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">
+
+            <div class="alert alert-danger" style="display:none">
+                
+            </div>
+
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Cadastrar-se</h4>
@@ -45,9 +50,9 @@
                                         <input class="form-check-input"
                                                id="servico1"
                                                type="radio"
-                                               name="servico1"
-                                               value="marketing">
-                                        <label class="form-check-label" for="servico1">Marketing</label>
+                                               name="servico"
+                                               value="marketing" checked>
+                                        <label class="form-check-label" for="servico1" checked>Marketing</label>
                                     </div>
                                     <div class="form-check">    
                                         <input class="form-check-input"
@@ -97,7 +102,7 @@
                                         type="radio" 
                                         name="genero" 
                                         value="NaoDeclarado">
-                                <label for="NDeclarado" class="form-check-label">Prefiro não declarar</label>
+                                <label for="Nao Declarado" class="form-check-label">Prefiro não declarar</label>
                         </div>
                         <div class="form-group">
                             <legend>Informações pessoais:</legend>
@@ -151,13 +156,13 @@
                             <label for="senha">Crie uma senha:</label>
                             <input  class="form-control" 
                                     id="senha" 
-                                    type="text" 
+                                    type="password" 
                                     placeholder="Digite a senha desejada"
                                     name="Senha" required>
                         </div>
                         <div class="form-group">
                             <label for="digiteNovamente">Digite Novamente:</label>
-                            <input  type="text" 
+                            <input  type="password" 
                                     class="form-control" 
                                     id="digiteNovamente" 
                                     placeholder="Digite novamente" 
@@ -181,14 +186,14 @@
         * */
         const $servico = document.querySelectorAll('input[name="servico"]');
         const $genero = document.querySelectorAll('input[name="genero"]');
-        var Nome = document.getElementById('Nome').value;
-        var SobreNome = document.getElementById('SobreNome').value;
-        var pais = document.getElementById('pais').value;
-        var DDD = Number(document.getElementById('ddd').value);
-        var Telefone = Number(document.getElementById('telefone').value);
-        var email = document.getElementById('email').value;
-        var endereco = document.getElementById('endereco').value;
-        var dataDeNascimento = Number(document.getElementById('datadenascimento').value);
+        const $nome = document.getElementById('Nome');
+        const $sobreNome = document.getElementById('SobreNome');
+        const $pais = document.getElementById('pais');
+        const $ddd = document.getElementById('ddd');
+        const $telefone = document.getElementById('telefone');
+        const $email = document.getElementById('email');
+        const $endereco = document.getElementById('endereco');
+        const $dataDeNascimento = document.getElementById('datadenascimento');
         const $btn = document.getElementById('form-btn');
         const $senha = document.getElementById('senha');
         const $confirmarSenha = document.getElementById('digiteNovamente');
@@ -199,11 +204,20 @@
             e.preventDefault();
             let serviceCheckValue;
             let genderCheckValue;
-            let senha;
-
-            if($senha.value.trim() === $confirmarSenha.value.trim()){
-                senha=$senha.value
-                console.log(senha);
+            const senha = $senha.value;
+            const confirmarSenha = $confirmarSenha.value
+            const nome = $nome.value;
+            const sobreNome = $sobreNome.value;
+            const pais = $pais.value;
+            const ddd = $ddd.value;
+            const telefone = $telefone.value;
+            const email = $email.value;
+            const endereco = $endereco.value;
+            const dataDeNascimento = $dataDeNascimento.value;
+            
+            // valida
+            if(senha.trim() !== confirmarSenha.trim()){
+                showMessage("Confirmação de senha inválida.")
             }
 
         
@@ -220,19 +234,51 @@
                     return;
                 }
             });
-            console.log(serviceCheckValue);
-            console.log(genderCheckValue);
-            console.log(Nome);
-            console.log(SobreNome);
-            console.log(pais);
-            console.log(DDD);
-            console.log(Telefone);
-            console.log(email);
-            console.log(endereco);
-            console.log(dataDeNascimento);
+
+            //Verificação dos valores carregados nas variáveis
+            const user = { 
+                nome,
+                sobreNome,
+                email,
+                senha,
+                servico:serviceCheckValue,
+                gender:genderCheckValue,
+                pais,
+                ddd,
+                telefone,
+                endereco,
+                dataDeNascimento,
+            }
+            
+            saveData(user);
+
+            logado(user)
+
+
 
         }
+
+        function saveData(user){
+            const db = localStorage.getItem("users");
+
+            const data = (db === null) ? [] : JSON.parse(db);
+            data.push(user);
+            localStorage.setItem("users", JSON.stringify(data));
+        }
         
+        function showMessage(msg){
+            const $alertMessage = document.getElementsByClassName("alert")[0];
+            
+            $alertMessage.innerHTML=msg;
+            $alertMessage.style.display = "block";
+
+            window.scrollTo(0, 0);
+        }
+        function logado(user){
+            localStorage.setItem("logado",JSON.stringify(user));
+            location.href="boasVindas.html"
+        }
+
     </script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="row">
+        <div class="col mx-auto m-4">
+            <h1 id="welcome">Bem-vindo</h1>
+        </div>
+    </div>
+
+    <script>
+            function atualizaBoasVindas() {
+                var usuario = JSON.parse(localStorage.getItem("logado"));
+    
+                var nome = usuario.nome;
+                document.getElementById("welcome").innerHTML = "Bem-vindo " + nome + " !";
+                
+            }
+    
+            atualizaBoasVindas()
+       </script>
+</body>
+</html>

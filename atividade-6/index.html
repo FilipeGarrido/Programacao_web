@@ -59,50 +59,47 @@
         </div>
     </div>
 </div>
-
-
 <script>
-    /*
-    * Pega elementos do DOM
-    *
-    * */
-    const $btn = document.getElementById('send-btn');
-    const $email = document.getElementById('email');
-    const $senha = document.getElementById('senha');
-
-
-    /**
-     * Adiciona ouvidor de eventos no botao
-     *
-     */
-    $btn.addEventListener('click', validate);
-
-    function validate(e) {
-        e.preventDefault();
-        const email = $email.value;
-        const senha = $email.value;
-
-        if(email.trim() === '' && senha.trim() === ''){
-            console.log('entrada invalida');
-            // retorna msg para o usuario
-            return;
-        }
-
-        // verifiacr se email e senha estao no local storage
-        const users = JSON.parse(localStorage.getItem('users'));
-
-        localStorage.
-
-        users.forEach( user => {
-            if (user.email === email && user.senha === senha){
-                //login
+        /*
+        * Pega elementos do DOM
+        *
+        * */
+        const $btn = document.getElementById('send-btn');
+        const $email = document.getElementById('email');
+        const $senha = document.getElementById('senha');
+    
+    
+        /**
+         * Adiciona ouvidor de eventos no botao
+         *
+         */
+        $btn.addEventListener('click', validate);
+    
+        function validate(e) {
+            e.preventDefault();
+            const email = $email.value;
+            const senha = $senha.value;
+    
+            if(email.trim() === '' && senha.trim() === ''){
+                console.log('entrada invalida');
+                // retorna msg para o usuario
+                return;
             }
-        })
-        
+    
+            // verifiacr se email e senha estao no local storage
+            const users = Array.from(JSON.parse(localStorage.getItem('users')));
 
-
-    }
-
-</script>
+            users.forEach( user => {
+                if (user.email === email && user.senha === senha){
+                    localStorage.setItem("logado",JSON.stringify(user));
+                    location.href="boasVindas.html"
+                }
+            })
+            
+    
+    
+        }
+    
+    </script>
 </body>
 </html>
