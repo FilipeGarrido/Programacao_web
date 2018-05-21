@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <title>Atividade 8</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="">Exercicio 6</a>
+
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registro.html">Cadastro</a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+
+                <form action="">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input class="form-control" type="password" id="senha" name="senha">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="send-btn"
+                                type="submit"
+                                class="btn btn-primary btn-block">Entrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    /*
+    * Pega elementos do DOM
+    *
+    * */
+    const $btn = document.getElementById('send-btn');
+    const $email = document.getElementById('email');
+    const $senha = document.getElementById('senha');
+
+
+    /**
+     * Adiciona ouvidor de eventos no botao
+     *
+     */
+    $btn.addEventListener('click', validate);
+
+    function validate(e) {
+        e.preventDefault();
+        const email = $email.value;
+        const senha = $email.value;
+
+        if(email.trim() === '' && senha.trim() === ''){
+            console.log('entrada invalida');
+            // retorna msg para o usuario
+            return;
+        }
+
+        // verifiacr se email e senha estao no local storage
+        const users = JSON.parse(localStorage.getItem('users'));
+
+        localStorage.
+
+        users.forEach( user => {
+            if (user.email === email && user.senha === senha){
+                //login
+            }
+        })
+        
+
+
+    }
+
+</script>
+</body>
+</html>

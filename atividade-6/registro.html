@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <title>Atividade 6</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="">Exercicio 6</a>
+
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="">Cadastro</a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Cadastrar-se</h4>
+                </div>
+
+                <form action="">
+                    <div class="card-body">
+                        <legend>Primeiro, escolha qual serviço quer fazer:</legend>
+                        <div id="servico">
+                                <div class="form-check">
+                                        <input class="form-check-input"
+                                               id="servico1"
+                                               type="radio"
+                                               name="servico1"
+                                               value="marketing">
+                                        <label class="form-check-label" for="servico1">Marketing</label>
+                                    </div>
+                                    <div class="form-check">    
+                                        <input class="form-check-input"
+                                               id="servico2"
+                                               type="radio"
+                                               name="servico"
+                                               value="administracao">
+                                        <label class="form-check-label" for="servico2">Administração</label>
+                                    </div>
+                                    <div class="form-check">   
+                                        <input  class="form-check-input"
+                                                id="servico3"
+                                                type="radio" 
+                                                name="servico"
+                                                value="empreededorismo">
+                                        <label for="servico3" class="form-check-label">Empreendedorismo</label>
+                                    </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <legend>Infromações pessoais</legend>
+                            <label for="Nome">Nome:</label>
+                            <input class="form-control" id="Nome" type="text" placeholder="Digite Seu Nome" name="NomeDoUsuario" required>
+                            <label for="SobreNome">Sobrenome:</label>
+                            <input class="form-control" type="text" name="Sobrenome" id="SobreNome" placeholder="Digite Seu Sobrenome" required>
+                        </div>
+                        <legend>Escolha seu Gênero</legend>
+                        <div class="form-check">
+                                <input  class="form-check-input"
+                                        id="genero1" 
+                                        type="radio" 
+                                        name="genero" 
+                                        value="Masculino" checked>
+                                <label for="genero1" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                                <input  class="form-check-input"
+                                        id="genero2" 
+                                        type="radio" 
+                                        name="genero" 
+                                        value="Feminino">
+                                <label for="genero2" class="form-check-label">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                                <input  class="form-check-input"
+                                        id="genero3" 
+                                        type="radio" 
+                                        name="genero" 
+                                        value="NaoDeclarado">
+                                <label for="NDeclarado" class="form-check-label">Prefiro não declarar</label>
+                        </div>
+                        <div class="form-group">
+                            <legend>Informações pessoais:</legend>
+                            <label for="pais">País de origem:</label>
+                            <select id="pais" class="form-control" name="PaisDeOrigem">
+                                <option value="Brasil">Brasil</option>
+                                <option value="Estados Unidos">Estados Unidos</option>
+                                <option value="Canadá">Canadá</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Inglaterra">Inglaterra</option>
+                                <option value="Alemanha">Alemanha</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Digite seu número de Telefone:</label>
+                            <div class="row">
+                                <input id="ddd"
+                                        class="form-control col-md-3" 
+                                        type="text" name="DDD" 
+                                         placeholder="(DDD)" required>
+                                <input id="telefone"
+                                        class="form-control col-md-9" 
+                                        type="text" 
+                                        name="Telefone" 
+                                        placeholder="999994444" required>
+                            </div>
+                        </div>
+                        <div class="form-group">      
+                            <label for="email">Digite seu e-mail:</label>
+                            <input class="form-control" id="email" type="e-mail" name="e-mail" placeholder="digite.aqui@seu.email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco">Endereço:</label>
+                            <input class="form-control" type="text" name="Endereco" id="endereco" placeholder="Opcional">
+                        </div>
+                        <div class="form-group">
+                            <label for="datadenascimento">Data de nascimento:</label>
+                            <input class="form-control" id="datadenascimento" type="date" name="DataDeNascimento" required>
+                        </div>
+                        <legend>Prove que você não é um robô:</legend>
+                        <div class="form-check">
+                            <input  class="form-check-input" 
+                                    type="checkbox" 
+                                    name="NaoSouUmRobo" 
+                                    value="confirmed" 
+                                    name="NaoSouUmRobo" required>
+                            <label for="NaoSouUmRobo" class="form-check-label">Não sou um robô</label>
+                        </div>
+                        <div class="form-group">
+                            <legend>Definição da senha:</legend>
+                            <label for="senha">Crie uma senha:</label>
+                            <input  class="form-control" 
+                                    id="senha" 
+                                    type="text" 
+                                    placeholder="Digite a senha desejada"
+                                    name="Senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="digiteNovamente">Digite Novamente:</label>
+                            <input  type="text" 
+                                    class="form-control" 
+                                    id="digiteNovamente" 
+                                    placeholder="Digite novamente" 
+                                    name="confirmarSenha" required>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="form-btn"
+                                type="submit"
+                                class="btn btn-primary btn-block">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        /*
+        * Pega elementos do DOM
+        *
+        * */
+        const $servico = document.querySelectorAll('input[name="servico"]');
+        const $genero = document.querySelectorAll('input[name="genero"]');
+        var Nome = document.getElementById('Nome').value;
+        var SobreNome = document.getElementById('SobreNome').value;
+        var pais = document.getElementById('pais').value;
+        var DDD = Number(document.getElementById('ddd').value);
+        var Telefone = Number(document.getElementById('telefone').value);
+        var email = document.getElementById('email').value;
+        var endereco = document.getElementById('endereco').value;
+        var dataDeNascimento = Number(document.getElementById('datadenascimento').value);
+        const $btn = document.getElementById('form-btn');
+        const $senha = document.getElementById('senha');
+        const $confirmarSenha = document.getElementById('digiteNovamente');
+        
+        $btn.addEventListener('click', validate);
+        
+        function validate(e){
+            e.preventDefault();
+            let serviceCheckValue;
+            let genderCheckValue;
+            let senha;
+
+            if($senha.value.trim() === $confirmarSenha.value.trim()){
+                senha=$senha.value
+                console.log(senha);
+            }
+
+        
+            $servico.forEach( function (radio) {
+                if (radio.checked){
+                    serviceCheckValue = radio.value;
+                    return;
+                }
+            });
+
+            $genero.forEach( function (radio) {
+                if (radio.checked){
+                    genderCheckValue = radio.value;
+                    return;
+                }
+            });
+            console.log(serviceCheckValue);
+            console.log(genderCheckValue);
+            console.log(Nome);
+            console.log(SobreNome);
+            console.log(pais);
+            console.log(DDD);
+            console.log(Telefone);
+            console.log(email);
+            console.log(endereco);
+            console.log(dataDeNascimento);
+
+        }
+        
+    </script>
+</body>
+</html>
